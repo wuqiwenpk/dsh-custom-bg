@@ -1,0 +1,6 @@
+# dsh bundle patch: inserts this plugin into a profile's layer stack.
+# `id` is the stable row identity that profile patches target; `name` is the
+# package this bundle ships. The panel and the wallpaper routes mount together.
+- insert:
+    - id: custom-bg
+      name: 'dsh-plugin-custom-bg'

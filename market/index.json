@@ -1,0 +1,85 @@
+{
+  "format": 1,
+  "title": {
+    "zh": "wuqiwen 的 DSH 插件",
+    "en": "wuqiwen's DSH plugins"
+  },
+  "description": {
+    "zh": "本仓库维护的 DeepSeek Harness 插件索引。",
+    "en": "DeepSeek Harness plugins maintained in this repository."
+  },
+  "metadata": {
+    "categories": {
+      "appearance": {
+        "title": {
+          "zh": "外观",
+          "en": "Appearance"
+        }
+      }
+    },
+    "labels": {
+      "open-source": {
+        "title": {
+          "zh": "开源",
+          "en": "Open source"
+        }
+      }
+    },
+    "sortKeys": {
+      "updated": {
+        "title": {
+          "zh": "更新时间",
+          "en": "Updated"
+        },
+        "order": "desc"
+      }
+    }
+  },
+  "plugins": [
+    {
+      "name": "dsh-plugin-custom-bg",
+      "title": {
+        "zh": "自定义背景",
+        "en": "Custom Wallpaper"
+      },
+      "description": {
+        "zh": "左下角浮窗上传并切换壁纸，可调遮罩与模糊，内置默认背景。",
+        "en": "Upload and switch wallpapers from a bottom-left floating panel, with scrim and blur sliders and a bundled default background."
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIiB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJDdXN0b20gYmFja2dyb3VuZCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzJmNmZlZCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM3YjVjZjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiByeD0iNDAiIGZpbGw9InVybCgjYmcpIi8+CiAgPGNpcmNsZSBjeD0iMTIyIiBjeT0iNTgiIHI9IjE1IiBmaWxsPSIjZmZkNzZlIi8+CiAgPHBhdGggZD0iTTIyIDEzOGwzNi00NCAyMiAyNiAxNi0xOCAzNCAzNnoiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuOTQiLz4KICA8cGF0aCBkPSJNMjIgMTM4aDEzNiIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC43Ii8+Cjwvc3ZnPgo=",
+      "author": "wuqiwen",
+      "homepage": "https://github.com/wuqiwenpk/dsh-custom-bg#readme",
+      "repository": {
+        "url": "https://github.com/wuqiwenpk/dsh-custom-bg"
+      },
+      "metadata": {
+        "category": "appearance",
+        "labels": [
+          "open-source"
+        ],
+        "keywords": [
+          "wallpaper",
+          "background",
+          "theme",
+          "ui",
+          "自定义背景",
+          "壁纸"
+        ],
+        "sortKeys": {
+          "updated": 1793328317
+        }
+      },
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishTimestamp": 1793328317,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/wuqiwenpk/dsh-custom-bg",
+            "commit": "aecfc9f240f0460f5c80624c0d8f8d81d077f70e"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "name": "dsh-plugin-custom-bg",
+  "version": "0.1.0",
+  "description": "自定义背景：在 DeepSeek Harness 左下角浮窗上传并切换壁纸，默认背景 default.jpg。 · Custom wallpaper for DeepSeek Harness with a bottom-left floating panel.",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "deepseek",
+    "harness",
+    "wallpaper",
+    "background",
+    "theme",
+    "appearance",
+    "ui"
+  ],
+  "license": "MIT",
+  "author": "wuqiwen",
+  "homepage": "https://github.com/wuqiwenpk/dsh-custom-bg#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuqiwenpk/dsh-custom-bg.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wuqiwenpk/dsh-custom-bg/issues"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "imgs",
+    "docs",
+    "market",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "external": []
+    }
+  },
+  "scripts": {
+    "check": "node --check lib/index.js && node --check lib/client.js",
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
