@@ -9,7 +9,8 @@
 `index.json` 是插件市场格式 1 的索引，已用 DSH 自带的校验器验证通过。
 
 1. 打开 **插件 → 发现（Discover）→ 索引源（Index sources）**
-2. 添加：`https://raw.githubusercontent.com/wuqiwenpk/dsh-custom-bg/main/market/index.json`
+2. 添加：`https://raw.githubusercontent.com/wuqiwenpk/dsh-custom-bg/master/market/index.json`
+   （仓库默认分支是 `master`，不是 `main`）
 3. 在发现页搜索 `背景`、`wallpaper`、`custom-bg`，即可看到并一键安装
 
 这条路径用自己的源，装的是本仓库当前 HEAD（`market/index.json` 里 pin 的 commit）。

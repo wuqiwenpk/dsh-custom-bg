@@ -15,12 +15,17 @@ has something to show the moment it is enabled.
 - **Bundled default background** — `imgs/default.jpg` is served straight from the package, no network needed.
 - **Upload and apply** — pick a file or drop an image onto the panel. JPG, PNG, WebP, GIF and AVIF up to 24 MB.
 - **Keep several images** — every upload stays as a thumbnail; click to switch, hover to delete. Re-uploading the same bytes stores it once.
-- **Scrim and blur** — two sliders keep text readable: scrim 0–85%, blur 0–24px.
+- **Scrim and blur** — two sliders keep text readable: scrim 0–85%, blur 0–24px. The scrim also drives the sidebar and title bar: at 0 they step aside and the wallpaper fills the whole window, not just the chat column.
 - **Follows light and dark** — the scrim flips between white and black with the theme, and the panel itself is themed glass.
 - **Persists across reloads** — the active image and both sliders live in `$DSH_HOME/plugin-data/dsh-custom-bg/state.json`.
 - **No third-party runtime** — the Host half uses Node built-ins only; the browser half is plain DOM.
 
 ![Dark theme](docs/panel-dark.png)
+
+Scrim and blur at 0: sidebar, title bar and chat column all step aside, and the
+wallpaper keeps its native sharpness.
+
+![Scrim and blur at zero](docs/panel-zero.jpg)
 
 ## Install
 

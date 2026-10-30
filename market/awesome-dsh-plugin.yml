@@ -14,4 +14,4 @@ category: ui
 description:
   en: Bottom-left floating panel that uploads and switches your own background images, with scrim and blur sliders and a bundled default wallpaper.
   zh: 左下角浮窗，上传并切换自定义背景图片，带遮罩与模糊滑块，内置默认背景。
-icon: https://raw.githubusercontent.com/wuqiwenpk/dsh-custom-bg/main/docs/icon-180.png
+icon: https://raw.githubusercontent.com/wuqiwenpk/dsh-custom-bg/master/docs/icon-180.png

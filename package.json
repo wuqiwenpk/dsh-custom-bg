@@ -53,7 +53,8 @@
   },
   "scripts": {
     "check": "node --check lib/index.js && node --check lib/client.js",
-    "smoke": "node scripts/smoke.mjs"
+    "smoke": "node scripts/smoke.mjs",
+    "index": "node scripts/build-index.mjs"
   },
   "publishConfig": {
     "access": "public"

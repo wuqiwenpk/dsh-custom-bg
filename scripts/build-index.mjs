@@ -3,11 +3,11 @@
  * ships with this repository, so the plugin can be found by adding the file as
  * an index source in DSH's Discover tab.
  *
- * The pinned Git commit is the repository's current HEAD, so run this after
- * committing and pushing the code you want installable:
+ * The pinned Git commit must already be reachable on GitHub, or installing from
+ * the index fails: it is `--ref` when given, otherwise the local HEAD.
  *
- *   node scripts/build-index.mjs
- *   git add market/index.json && git commit -m "chore: refresh market index"
+ *   node scripts/build-index.mjs                 # pin HEAD (push it first)
+ *   node scripts/build-index.mjs --ref 6b7234b   # pin an existing commit
  *
  * Format: `@deepseek-ai/dsh-plugin-market-index` (`format: 1`).
  */
@@ -19,10 +19,16 @@ import { fileURLToPath } from 'node:url'
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const manifest = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'))
 const icon = readFileSync(join(root, 'docs/icon.svg'))
-const commit = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim()
+const refFlag = process.argv.indexOf('--ref')
+const commit =
+  refFlag === -1
+    ? execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim()
+    : (process.argv[refFlag + 1] ?? '').trim()
 const now = Math.floor(Date.now() / 1000)
 
-if (!/^[0-9a-f]{40}$/u.test(commit)) throw new Error(`unexpected commit: ${commit}`)
+if (!/^[0-9a-f]{40}$/u.test(commit)) {
+  throw new Error(`expected a full 40-character commit sha, got ${JSON.stringify(commit)}`)
+}
 
 const index = {
   format: 1,

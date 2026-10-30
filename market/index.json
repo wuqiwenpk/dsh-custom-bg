@@ -66,17 +66,17 @@
           "壁纸"
         ],
         "sortKeys": {
-          "updated": 1793328317
+          "updated": 1793329290
         }
       },
       "versions": [
         {
           "version": "0.1.0",
-          "publishTimestamp": 1793328317,
+          "publishTimestamp": 1793329290,
           "source": {
             "type": "git",
             "url": "https://github.com/wuqiwenpk/dsh-custom-bg",
-            "commit": "aecfc9f240f0460f5c80624c0d8f8d81d077f70e"
+            "commit": "6b7234ba87e7b2327af4a5c83c6f1395511d7b9b"
           }
         }
       ]
