@@ -88,13 +88,30 @@ try {
 
   const initial = json(await call('GET', '/custom-bg/api/state'))
   assert.equal(initial.active.id, 'default')
-  assert.equal(initial.images.length, 1)
+  assert.deepEqual(
+    initial.images.map((entry) => entry.id),
+    ['default', 'ducks', 'seaside'],
+    'the three bundled wallpapers are listed first',
+  )
+  assert.ok(
+    initial.images.every((entry) => entry.builtin === true),
+    'bundled wallpapers are flagged builtin',
+  )
   assert.equal(initial.settings.scrim, 0.45)
 
-  const builtin = await call('GET', '/custom-bg/image/default.jpg')
-  assert.equal(builtin.status, 200)
-  assert.equal(builtin.headers['content-type'], 'image/jpeg')
-  assert.ok(builtin.body.length > 1000, 'shipped default.jpg must be served')
+  for (const name of ['default.jpg', 'ducks.jpg', 'seaside.jpg']) {
+    const builtin = await call('GET', `/custom-bg/image/${name}`)
+    assert.equal(builtin.status, 200, `${name} must be served`)
+    assert.equal(builtin.headers['content-type'], 'image/jpeg')
+    assert.ok(builtin.body.length > 1000, `shipped ${name} must not be empty`)
+  }
+
+  const shipped = await call('POST', '/custom-bg/api/delete', {
+    body: JSON.stringify({ id: 'ducks' }),
+    headers: { 'content-type': 'application/json' },
+  })
+  assert.equal(shipped.status, 400)
+  assert.equal(json(shipped).error, 'builtin-image')
 
   const uploaded = await call('POST', '/custom-bg/api/upload', {
     body: PNG,
@@ -103,8 +120,8 @@ try {
   assert.equal(uploaded.status, 200)
   const afterUpload = json(uploaded)
   assert.equal(afterUpload.active.builtin, false)
-  assert.equal(afterUpload.images.length, 2)
-  assert.equal(afterUpload.images[1].name, '我的壁纸.png')
+  assert.equal(afterUpload.images.length, 4)
+  assert.equal(afterUpload.images[3].name, '我的壁纸.png')
 
   const image = await call('GET', `/custom-bg/image/${afterUpload.active.id}.png`)
   assert.equal(image.status, 200)
@@ -127,7 +144,7 @@ try {
     body: JSON.stringify({ id: afterUpload.active.id }),
     headers: { 'content-type': 'application/json' },
   })
-  assert.equal(json(deleted).images.length, 1)
+  assert.equal(json(deleted).images.length, 3)
 
   const missing = await call('GET', '/custom-bg/image/nonexistent.png')
   assert.equal(missing.status, 404)

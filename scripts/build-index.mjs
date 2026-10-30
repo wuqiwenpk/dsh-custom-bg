@@ -47,8 +47,8 @@ const index = {
       name: manifest.name,
       title: { zh: '自定义背景', en: 'Custom Wallpaper' },
       description: {
-        zh: '左下角浮窗上传并切换壁纸，可调遮罩与模糊，内置默认背景。',
-        en: 'Upload and switch wallpapers from a bottom-left floating panel, with scrim and blur sliders and a bundled default background.',
+        zh: '左下角浮窗上传并切换壁纸，可调遮罩与模糊，内置三张壁纸。',
+        en: 'Upload and switch wallpapers from a bottom-left floating panel, with scrim and blur sliders and three bundled wallpapers.',
       },
       icon: `data:image/svg+xml;base64,${icon.toString('base64')}`,
       author: 'wuqiwen',

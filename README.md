@@ -3,16 +3,16 @@
 English | [中文](README.zh.md)
 
 A wallpaper for DeepSeek Harness. A small floating panel in the bottom-left
-corner uploads images, switches between them, and tunes the scrim and blur. The
-default background ships inside the package (`imgs/default.jpg`), so the plugin
-has something to show the moment it is enabled.
+corner uploads images, switches between them, and tunes the scrim and blur.
+Three wallpapers ship inside the package (`imgs/`), so the plugin has something
+to show the moment it is enabled.
 
 ![Floating panel](docs/panel.png)
 
 ## Features
 
 - **Bottom-left floating panel** — a 44px button that expands into a 312px card; it never takes layout space.
-- **Bundled default background** — `imgs/default.jpg` is served straight from the package, no network needed.
+- **Three bundled wallpapers** — `default.jpg`, `ducks.jpg` and `seaside.jpg` live in `imgs/` and are served straight from the package, no network needed.
 - **Upload and apply** — pick a file or drop an image onto the panel. JPG, PNG, WebP, GIF and AVIF up to 24 MB.
 - **Keep several images** — every upload stays as a thumbnail; click to switch, hover to delete. Re-uploading the same bytes stores it once.
 - **Scrim and blur** — two sliders keep text readable: scrim 0–85%, blur 0–24px. The scrim also drives the sidebar and title bar: at 0 they step aside and the wallpaper fills the whole window, not just the chat column.
@@ -56,10 +56,9 @@ dsh plugin --profile web add "git+https://github.com/wuqiwenpk/dsh-custom-bg.git
 
 1. Click the wallpaper button in the bottom-left corner.
 2. **Upload** — press “上传图片” or drop an image onto the panel. The upload becomes the active background immediately.
-3. **Switch** — click a thumbnail. The one labelled 默认 is the bundled background.
+3. **Switch** — click a thumbnail. The ones labelled 内置 are the bundled wallpapers, and they are always there.
 4. **Tune** — drag 遮罩 to dim or lift the wallpaper, drag 模糊 to push it back.
-5. **Reset** — “恢复默认” returns to `default.jpg`.
-6. **Collapse** — the × in the header, or `Esc`; the panel remembers whether it was open.
+5. **Collapse** — the × in the header, or `Esc`; the panel remembers whether it was open.
 
 ## Data and configuration
 
@@ -67,7 +66,7 @@ dsh plugin --profile web add "git+https://github.com/wuqiwenpk/dsh-custom-bg.git
 |---|---|
 | Uploaded images | `$DSH_HOME/plugin-data/dsh-custom-bg/<id>.<ext>` |
 | Active image and sliders | `$DSH_HOME/plugin-data/dsh-custom-bg/state.json` |
-| Bundled default | `imgs/default.jpg` inside the package |
+| Bundled wallpapers | `imgs/*.jpg` inside the package (three) |
 
 `$DSH_HOME` defaults to `~/.dsh`. Uninstalling keeps this data; delete the
 directory to remove it.
@@ -91,7 +90,7 @@ The Host half claims the `/custom-bg` prefix:
 | GET | `/custom-bg/image/<id>.<ext>` | Image bytes, long-lived cache |
 | POST | `/custom-bg/api/upload` | Raw image body (optional `x-file-name`); stored and activated |
 | POST | `/custom-bg/api/select` | `{"id": "..."}` |
-| POST | `/custom-bg/api/delete` | `{"id": "..."}`; the bundled background is not deletable |
+| POST | `/custom-bg/api/delete` | `{"id": "..."}`; bundled wallpapers are not deletable |
 | POST | `/custom-bg/api/settings` | `{"scrim": 0..0.85, "blur": 0..24}`, clamped |
 
 Cross-site requests are refused (`Sec-Fetch-Site` / `Origin`), and uploads are
@@ -107,7 +106,7 @@ sniffed by signature — mislabelled bodies get 415.
 - **No wallpaper appears** — another theme/appearance plugin may be writing `--dsw-alias-bg-base` back; keep one of them enabled.
 - **Why the panel sits 82px above the bottom edge** — so it clears the sidebar's footer row (settings, more, account) instead of covering it.
 - **Upload rejected** — formats are checked by file signature, so a renamed file gets 415; the limit is 24 MB.
-- **Start clean** — delete `$DSH_HOME/plugin-data/dsh-custom-bg/` and the bundled default comes back.
+- **Start clean** — delete `$DSH_HOME/plugin-data/dsh-custom-bg/` and the three bundled wallpapers come back.
 
 ## Development
 

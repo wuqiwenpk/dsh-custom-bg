@@ -1,7 +1,7 @@
 {
   "name": "dsh-plugin-custom-bg",
   "version": "0.1.0",
-  "description": "自定义背景：在 DeepSeek Harness 左下角浮窗上传并切换壁纸，默认背景 default.jpg。 · Custom wallpaper for DeepSeek Harness with a bottom-left floating panel.",
+  "description": "自定义背景：在 DeepSeek Harness 左下角浮窗上传并切换壁纸，内置三张壁纸。 · Custom wallpaper for DeepSeek Harness with a bottom-left floating panel.",
   "keywords": [
     "dsh",
     "dsh-plugin",
